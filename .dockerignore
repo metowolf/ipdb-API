@@ -11,5 +11,5 @@ LICENSE
 .gitignore
 .nvmrc
 
-.env*
+.env.local
 .editorconfig
