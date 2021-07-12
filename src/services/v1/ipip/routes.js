@@ -2,6 +2,7 @@ const Router = require('koa-router')
 const IPDB = require('ipdb')
 const ipdb_range = require('@ipdb/range')
 const ipdb_database = require('@ipdb/database')
+const config = require('../../../config')
 const ipdb = new IPDB(ipdb_database, {
   patches: [ipdb_range]
 })
@@ -26,7 +27,10 @@ router.get('/version', async (ctx) => {
 // find ip
 router.get('/:ip', async (ctx) => {
   try {
-    const ip = ctx.params.ip
+    let ip = ctx.params.ip
+    if (ip === 'me') {
+      ip = ctx.headers[config.client_header] || ctx.ip
+    }
     const { code, data, message } = ipdb.find(ip)
     if (code) {
       throw new Error(message)
@@ -37,8 +41,10 @@ router.get('/:ip', async (ctx) => {
       region_name: data.region_name,
       city_name: data.city_name,
       owner_domain: data.owner_domain || '',
-      isp_domain: data.isp_domain || '',
-      range: {
+      isp_domain: data.isp_domain || ''
+    }
+    if (!config.disable_range) {
+      result.range = {
         from: data.range.from,
         to: data.range.to
       }

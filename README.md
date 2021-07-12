@@ -9,7 +9,7 @@ Open Source REST API for IP database, includes qqwry, ipipdotnet.
 ## Usage
 
 ```http
-GET https://api.i-meto.com/ip/v1/qqwry/119.29.29.29
+GET http://localhost:3000/v1/qqwry/119.29.29.29
 ```
 
 ```json
@@ -19,29 +19,21 @@ GET https://api.i-meto.com/ip/v1/qqwry/119.29.29.29
   "region_name": "广东",
   "city_name": "广州",
   "owner_domain": "cloud.tencent.com",
-  "isp_domain": "",
-  "range": {
-    "from": "119.29.0.0",
-    "to": "119.29.127.255"
-  }
+  "isp_domain": ""
 }
 ```
 
 ```http
-GET https://api.i-meto.com/ip/v1/ipip/119.29.29.29
+GET http://localhost:3000/v1/qqwry/me
 ```
 
 ```json
 {
-  "ip": "119.29.29.29",
-  "country_name": "DNSPOD.COM",
-  "region_name": "DNSPOD.COM",
+  "ip": "127.0.0.1",
+  "country_name": "本机地址",
+  "region_name": "本机地址",
   "city_name": "",
   "owner_domain": "",
-  "isp_domain": "",
-  "range": {
-    "from": "119.29.29.0",
-    "to": "119.29.29.255"
-  }
+  "isp_domain": ""
 }
 ```
