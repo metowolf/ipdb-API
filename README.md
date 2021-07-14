@@ -7,6 +7,8 @@ Open Source REST API for IP database, includes qqwry, ipipdotnet.
 </h3>
 
 ## Usage
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmetowolf%2Fipdb-API.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmetowolf%2Fipdb-API?ref=badge_shield)
+
 
 ```http
 GET http://localhost:3000/v1/qqwry/119.29.29.29
@@ -37,3 +39,6 @@ GET http://localhost:3000/v1/qqwry/me
   "isp_domain": ""
 }
 ```
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmetowolf%2Fipdb-API.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmetowolf%2Fipdb-API?ref=badge_large)
