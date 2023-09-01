@@ -30,6 +30,7 @@ router.get('/:ip', async (ctx) => {
     let ip = ctx.params.ip
     if (ip === 'me') {
       ip = ctx.headers[config.client_header] || ctx.ip
+      ip = ip.split(',')[0]
     }
     const { code, data, message } = ipdb.find(ip)
     if (code) {

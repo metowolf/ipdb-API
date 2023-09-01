@@ -1,4 +1,4 @@
-FROM node:16-alpine
+FROM node:19-alpine
 
 LABEL maintainer="i@i-meto.com"
 
@@ -14,8 +14,8 @@ USER webapp
 WORKDIR /app
 ENTRYPOINT ["yarn", "start"]
 
-COPY package.json yarn.lock /app/
+COPY package.json pnpm-lock.yaml /app/
 
-RUN yarn
+RUN corepack enable && pnpm i
 
 COPY . .

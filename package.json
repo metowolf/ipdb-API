@@ -1,6 +1,6 @@
 {
   "name": "docker-ipdb",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "server.js",
   "repository": "git@github.com:metowolf/docker-ipdb.git",
   "author": "metowolf <i@i-meto.com>",
@@ -11,18 +11,18 @@
   "dependencies": {
     "@ipdb/database": "^2019.7.3",
     "@ipdb/range": "^0.1.1",
-    "dotenv-flow": "^3.2.0",
+    "dotenv-flow": "^3.3.0",
     "ipdb": "^0.3.3",
-    "koa": "^2.13.1",
-    "koa-helmet": "^6.1.0",
-    "koa-pino-logger": "^3.0.0",
-    "koa-router": "^10.0.0",
+    "koa": "^2.14.2",
+    "koa-helmet": "^7.0.2",
+    "koa-pino-logger": "^4.0.0",
+    "koa-router": "^12.0.0",
     "koa2-cors": "^2.0.6",
-    "pino": "^6.12.0",
-    "pino-pretty": "^5.1.1",
-    "qqwry.ipdb": "^2021.7.7"
+    "pino": "^8.15.0",
+    "pino-pretty": "^10.2.0",
+    "qqwry.ipdb": "^2023.8.23"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "nodemon": "^3.0.1"
   }
 }
