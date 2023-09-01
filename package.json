@@ -1,12 +1,13 @@
 {
   "name": "docker-ipdb",
   "version": "1.2.1",
-  "main": "server.js",
+  "main": "src/server.js",
   "repository": "git@github.com:metowolf/docker-ipdb.git",
   "author": "metowolf <i@i-meto.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon server.js"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
   },
   "dependencies": {
     "@ipdb/database": "^2019.7.3",

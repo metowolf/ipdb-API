@@ -6,16 +6,17 @@ ENV NODE_ENV=production
 
 EXPOSE 3000
 
-# Run as an unprivileged user.
-RUN addgroup -S webapp && adduser -S -G webapp webapp
-RUN mkdir /app && chown webapp /app
+RUN addgroup -S webapp && adduser -S -G webapp webapp \
+  && mkdir /app && chown webapp /app \
+  && corepack enable
+
 USER webapp
 
 WORKDIR /app
-ENTRYPOINT ["yarn", "start"]
+ENTRYPOINT ["pnpm", "start"]
 
 COPY package.json pnpm-lock.yaml /app/
 
-RUN corepack enable && pnpm i
+RUN pnpm i
 
-COPY . .
+COPY src /app/src
