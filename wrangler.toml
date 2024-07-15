@@ -1,0 +1,9 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "openipdb"
+main = "src/worker.js"
+compatibility_date = "2023-08-23"
+compatibility_flags = [ "nodejs_compat" ]
+
+[[r2_buckets]]
+binding = "OPENIPDB_BUCKET"
+bucket_name = "openipdb"
