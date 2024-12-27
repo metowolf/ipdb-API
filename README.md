@@ -6,6 +6,20 @@
 Open Source REST API for IP database, includes qqwry, ipipdotnet.
 </h3>
 
+## Docker
+
+### Run container
+
+```bash
+docker run -d -p 80:80 ghcr.io/metowolf/ipdb-api/server:1.3.0
+```
+
+### Mount Bucket Path
+
+```bash
+docker run -d -p 80:80 -v /tmp/openipdb:/tmp/openipdb ghcr.io/metowolf/ipdb-api/server:1.3.0
+```
+
 ## Usage
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmetowolf%2Fipdb-API.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmetowolf%2Fipdb-API?ref=badge_shield)
 
