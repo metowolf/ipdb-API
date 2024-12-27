@@ -1,22 +1,23 @@
-FROM node:19-alpine
+FROM node:22-alpine
 
 LABEL maintainer="i@i-meto.com"
 
-ENV NODE_ENV=production
+ENV NODE_ENV=production \
+  HTTP_PORT=80 \
+  BUCKET_PATH=/tmp/openipdb
 
-EXPOSE 3000
+EXPOSE 80
 
-RUN addgroup -S webapp && adduser -S -G webapp webapp \
-  && mkdir /app && chown webapp /app \
+RUN mkdir /app \
   && corepack enable
-
-USER webapp
 
 WORKDIR /app
 ENTRYPOINT ["pnpm", "start"]
 
 COPY package.json pnpm-lock.yaml /app/
 
-RUN pnpm i
+RUN pnpm i \
+  && mkdir $BUCKET_PATH \
+  && wget https://cdn.jsdelivr.net/npm/openipdb.ipdb@2024.12.27/openipdb.ipdb -O $BUCKET_PATH/openipdb.ipdb
 
 COPY src /app/src
