@@ -7,13 +7,16 @@
   "author": "metowolf <i@i-meto.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "wrangler dev",
-    "deploy": "wrangler deploy"
+    "dev:worker": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "dev": "nodemon node src/server.js"
   },
   "dependencies": {
+    "@hono/node-server": "^1.13.7",
     "hono": "^4.6.13"
   },
   "devDependencies": {
+    "nodemon": "^3.1.9",
     "wrangler": "^3.94.0"
   }
 }

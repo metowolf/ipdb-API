@@ -1,6 +1,21 @@
-const config = require('./config')
-const { logger } = require('./middleware/logger')
-const app = require('./app')
+import { serve } from '@hono/node-server'
+import app from './worker.js'
+import startLocalBucket from './bucket.js'
 
-app.listen(config.http.port, config.http.host)
-logger.info(`Running on port: ${config.http.port}`)
+const config = {
+  port: parseInt(process.env.HTTP_PORT || '3000'),
+  path: process.env.BUCKET_PATH || '/tmp/openipdb'
+}
+
+const start = async () => {
+  const bucket = await startLocalBucket(config.path)
+  serve({
+    fetch: (request, env, ...args) => {
+      env.OPENIPDB_BUCKET = bucket
+      return app.fetch(request, env, ...args)
+    },
+    port: parseInt(config.port || '3000')
+  })
+}
+
+start()

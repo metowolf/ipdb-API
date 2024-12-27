@@ -66,4 +66,9 @@ app.get('/ip/v1/:database/:ip', async (c) => {
   })
 })
 
+app.onError((err, c) => {
+  console.error(err)
+  return c.json({ error: err.message }, 400)
+})
+
 export default app
