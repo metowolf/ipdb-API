@@ -92,9 +92,7 @@ class Parse {
   }
 
   _toBits(ip) {
-    const version = 4
-
-    return version === 4 ? this._toBits4(ip) : this._toBits6(ip)
+    return ip.includes(':') ? this._toBits6(ip) : this._toBits4(ip)
   }
 
   _toBits4(ip) {

@@ -1,6 +1,6 @@
 {
   "name": "docker-ipdb",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "main": "src/server.js",
   "type": "module",
   "repository": "git@github.com:metowolf/docker-ipdb.git",
@@ -14,10 +14,10 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.13.7",
-    "hono": "^4.6.13"
+    "hono": "^4.6.15"
   },
   "devDependencies": {
     "nodemon": "^3.1.9",
-    "wrangler": "^3.94.0"
+    "wrangler": "^3.99.0"
   }
 }
